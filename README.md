@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Trabalho Fabrício React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto React que implementa uma interface moderna e responsiva utilizando TailwindCSS e diversas outras tecnologias modernas.
 
-## Available Scripts
+## 🚀 Tecnologias Utilizadas
 
-In the project directory, you can run:
+### Principais Dependências
 
-### `npm start`
+- **React (v19.1.0)**: Framework JavaScript para construção da interface
+- **React Router DOM (v7.6.0)**: Gerenciamento de rotas da aplicação
+- **Axios (v1.9.0)**: Cliente HTTP para comunicação com a API
+- **TailwindCSS (v4.1.7)**: Framework CSS para estilização
+- **React Icons (v5.5.0)**: Biblioteca de ícones
+- **React Select (v5.10.1)**: Componente de select customizado
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Dependências de Desenvolvimento
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Testing Library**: Suite de testes para React
+- **Autoprefixer**: Processamento CSS
+- **PostCSS**: Processamento CSS
 
-### `npm test`
+## 📁 Estrutura do Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/     # Componentes reutilizáveis
+├── pages/         # Páginas da aplicação
+├── services/      # Configuração de serviços (API)
+├── styles/        # Estilos globais
+├── utils/         # Utilitários
+└── App.js         # Componente principal
+```
 
-### `npm run build`
+## 📱 Páginas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O projeto contém as seguintes páginas principais:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Inicial**: Página de entrada da aplicação
+- **Home**: Página principal com o conteúdo principal
+- **Agradecimento**: Página de feedback após ações do usuário
+- **Admin**: Área administrativa (acesso restrito)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔒 Autenticação
 
-### `npm run eject`
+O projeto utiliza autenticação via token JWT, implementada através de:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `PrivateRoute.js`: Componente para proteção de rotas
+- Token armazenado no localStorage
+- Headers de autorização automáticos nas requisições
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🌐 Integração com API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+A aplicação se conecta com um backend hospedado na Vercel:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Base URL**: `https://backend-completo.vercel.app/app`
+- Utiliza Axios para requisições HTTP
+- Configuração centralizada em `services/api.js`
+- Headers de autenticação automáticos
 
-## Learn More
+## 🚀 Como Executar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone o repositório
+2. Instale as dependências:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install
+```
 
-### Code Splitting
+3. Execute o projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O projeto estará disponível em `http://localhost:3000`
