@@ -6,3 +6,5 @@ export const api = axios.create({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
+
+export const usuario = "010623008";

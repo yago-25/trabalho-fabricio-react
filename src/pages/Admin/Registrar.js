@@ -5,36 +5,42 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import LoadingButton from "../../components/LoadingButton";
 
-const Painel = () => {
+const Registrar = () => {
   const navigate = useNavigate();
 
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
+  const [confirmaSenha, setConfirmaSenha] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const login = async () => {
-    if (!usuario || !senha) {
+  const registrar = async () => {
+    if (!usuario || !senha || !confirmaSenha) {
       alert("Preencha todos os campos");
+      return;
+    }
+
+    if (senha !== confirmaSenha) {
+      alert("Senhas não coincidem.");
       return;
     }
 
     setLoading(true);
     try {
-      const response = await api.post("/login", {
+      const response = await api.post("/registrar", {
         usuario,
         senha,
+        confirma: confirmaSenha,
       });
 
-      const token = response.data.token;
+      const id = response.data.id;
 
-      if (token) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("usuario", usuario);
-        navigate("/dashboard");
+      if (id) {
+        alert("Usuário registrado com sucesso! Faça seu login.");
+        navigate("/painel");
       }
     } catch (e) {
-      alert("Erro ao fazer login");
-      console.log("Erro ao fazer login: ", e);
+      alert("Erro ao fazer cadastro");
+      console.log("Erro ao fazer cadastro: ", e);
     }
   };
 
@@ -59,16 +65,20 @@ const Painel = () => {
             onChange={(e) => setSenha(e.target.value)}
           />
         </label>
+        <label>
+          Confirmar senha
+          <input
+            type="password"
+            placeholder="Insira sua senha"
+            value={confirmaSenha}
+            onChange={(e) => setConfirmaSenha(e.target.value)}
+          />
+        </label>
         <div className="botoes">
           <ButtonAplication
-            text={!loading ? "Entrar" : <LoadingButton />}
-            onClick={login}
-            disabled={loading}
-          />
-          <ButtonAplication
             text={!loading ? "Registrar" : <LoadingButton />}
+            onClick={registrar}
             disabled={loading}
-            onClick={() => navigate("/registrar")}
           />
         </div>
 
@@ -80,4 +90,4 @@ const Painel = () => {
   );
 };
 
-export default Painel;
+export default Registrar;

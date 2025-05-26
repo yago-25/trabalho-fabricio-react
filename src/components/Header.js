@@ -64,19 +64,26 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        height: 64,
+        height: 70,
         padding: "0 24px",
         background: "transparent",
-        backdropFilter: "blur(20px)",
-        color: "white",
-        fontWeight: "700",
-        fontSize: 22,
-        boxShadow: "0 4px 12px #ffffff42",
-        marginBottom: "30px",
+        backdropFilter: "blur(25px)",
+        color: "#fff",
+        fontWeight: 700,
+        fontSize: 26,
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
+        marginBottom: "30px",
+        letterSpacing: 1,
+        userSelect: "none",
       }}
     >
-      <h1 style={{ margin: 0, userSelect: "none" }}>
+      <h1
+        style={{
+          margin: 0,
+          transition: "all 0.2s ease-in-out",
+        }}
+      >
         {texts[index].substring(0, subIndex)}
         <span style={{ opacity: blink ? 1 : 0 }}>|</span>
       </h1>
@@ -88,24 +95,24 @@ const Header = () => {
         style={{
           position: "absolute",
           right: 24,
-          background: "rgba(255 255 255 / 0.15)",
+          background: "rgba(255, 255, 255, 0.1)",
           border: "none",
           borderRadius: "50%",
-          width: 40,
-          height: 40,
+          width: 44,
+          height: 44,
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "white",
-          transition: "background 0.3s ease",
-          boxShadow: "0 2px 8px rgba(255, 255, 255, 0.3)",
+          color: "#fff",
+          transition: "all 0.3s ease",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
         }}
         onMouseEnter={(e) =>
-          (e.currentTarget.style.background = "rgba(255 255 255 / 0.3)")
+          (e.currentTarget.style.background = "rgba(255, 255, 255, 0.25)")
         }
         onMouseLeave={(e) =>
-          (e.currentTarget.style.background = "rgba(255 255 255 / 0.15)")
+          (e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)")
         }
       >
         <svg
